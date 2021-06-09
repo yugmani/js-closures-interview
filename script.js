@@ -140,3 +140,40 @@ const returnShorthand = () => {
 // console.log(returnShorthand());
 // expected: liza when user1 = "liza"
 // expected: Ritu is substitute teacher! when user1 is defined;
+
+// 8. Switch Statement Optimization
+function dataSet1() {
+  console.log('It is dataSet1');
+}
+
+function dataSet2() {
+  console.log('It is dataSet2');
+}
+
+function dataSet() {
+  console.log('It is dataSet');
+}
+
+// Longhand
+// const sata = prompt('Enter data: ');
+// switch (parseInt(sata)) {
+//   case 1:
+//     dataSet1();
+//     break;
+//   case 2:
+//     dataSet2();
+//     break;
+//   case 3:
+//     dataSet();
+//     break;
+//     // And so on...
+// }
+
+// shorthand
+const pata = {
+  1: dataSet1,
+  2: dataSet2,
+  3: dataSet
+};
+// const item = prompt('Enter data: ');
+// pata[item]();
