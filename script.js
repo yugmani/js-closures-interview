@@ -54,9 +54,31 @@ const littleBigGrand = size => {
 
 // 4. Checking not null values
 // shorthand
-// let data1;
-let data2 = data1 || 'nothing';
-console.log(data2); // expected nothing;
+let data1 = null || undefined || '';
+// let data2 = data1 || 'nothing';
+// console.log(data2); // expected nothing;
+
+//Longhand1
+// if (data1) {
+//   let data2 = data1;
+//   console.log(data2);
+// } else console.log('data1 does not exist');
+
+//longhand2
+// if (!data1) {
+//   console.log('data1 does not exist');
+// } else {
+//   let data2 = data1;
+//   console.log('data2: ', data2);
+// }
+
+// shorthand2
+function callMethod() {
+  let data2 = data1;
+  return 'data2: ' + data2;
+}
+//if data1 exists execute callMethod;
+data1 && console.log(callMethod());
 
 // 5. Assigning default values
 
@@ -76,7 +98,7 @@ let value1 = undefined,
 
 // 6. Nullish Operator
 
-const user = null ?? "Yoog";
+const user = null ?? 'Yoog';
 // console.log(user); // Yoog
 
 const price = 1 ?? 4;
@@ -84,7 +106,37 @@ const price = 1 ?? 4;
 
 // 6. Assigning values;
 
-let [str1, str2, str3] = ["aa", "", "cc"];
+let [str1, str2, str3] = ['aa', '', 'cc'];
 // console.log([str1, str3]); //["aa", "cc"]
 // console.log([str2]); // [""]
 
+// 7. Return shorthand
+
+// let user1;
+let user1 = 'liza';
+
+function returnMe() {
+  if (!user1) {
+    return callMeFunction('Ritu');
+  } else {
+    return user1;
+  }
+}
+
+const callMeFunction = name => {
+  return 'Ritu is substitute teacher!';
+};
+
+const user2 = returnMe();
+// console.log('User1: ' + user2);
+// expected: liza when user1 = "liza"
+// expected: Ritu is substitute teacher! when user1 is defined;
+
+// Really a shorthand
+const returnShorthand = () => {
+  return user1 || callMeFunction('Ritu');
+};
+
+// console.log(returnShorthand());
+// expected: liza when user1 = "liza"
+// expected: Ritu is substitute teacher! when user1 is defined;
