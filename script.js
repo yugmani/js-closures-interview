@@ -156,7 +156,7 @@ function dataSet() {
 
 // Longhand
 // const sata = prompt('Enter data: ');
-// switch (parseInt(sata)) {
+// switch (+sata) {  // parseInt(sata) or +sata
 //   case 1:
 //     dataSet1();
 //     break;
@@ -177,3 +177,38 @@ const pata = {
 };
 // const item = prompt('Enter data: ');
 // pata[item]();
+
+// 9. Array.find method
+const data = [
+  {
+    type: 'data1',
+    name: 'abc'
+  },
+  {
+    type: 'data2',
+    name: 'cde'
+  },
+  {
+    type: 'data1',
+    name: 'fgh'
+  }
+];
+
+// function dataFindData(name) {
+//   for (let i = 0; i < data.length; ++i) {
+//     if (data[i].type === 'data1' && data[i].name === name) {
+//       return data[i];
+//     }
+//   }
+// }
+
+// console.log(dataFindData('abc'));
+// {type: "data1", name: "abc"}
+
+// Shorthand
+const filteredData = data.find(
+  item => item.type === 'data1' && item.name === 'fgh'
+);
+
+// console.log(filteredData);
+// {type: "data1", name: "fgh"}
